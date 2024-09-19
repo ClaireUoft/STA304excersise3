@@ -1,8 +1,8 @@
 #### Preamble ####
 # Purpose: Simulates data
-# Author: Rohan Alexander
+# Author: Claire Chang
 # Date: 19 September 2024
-# Contact: rohan.alexander@utoronto.ca
+# Contact: Claire.chang@mail.utoronto.ca
 # License: MIT
 # Pre-requisites: None
 # Any other information needed? None
