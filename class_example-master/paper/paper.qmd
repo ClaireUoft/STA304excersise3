@@ -1,0 +1,97 @@
+---
+title: "My title"
+subtitle: "My subtitle if needed"
+author: 
+  - Claire Chang
+thanks: "Code and data are available at: LINK."
+date: today
+date-format: long
+abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(ggplot2)
+
+data <- read_csv(here::here("data/analysis_data/analysis_data.csv"))
+
+```
+
+# Introduction
+
+You can and should cross-reference sections and sub-sections. We use @talia, @opendatatorotno, and @rohan.
+
+The remainder of this paper is structured as follows. @sec-mydatasection
+
+# Data {#sec-mydatasection}
+
+Some of our data is of penguins (@fig-marriage), from @palmerpenguins.
+
+```{r}
+#| label: fig-marriage
+#| fig-cap: Bills of penguins
+#| echo: false
+
+data |> 
+  ggplot(aes(x = date, y = marriage_licenses)) +
+  geom_point()
+
+```
+
+Talk more about it: The scatter plot displays the distribution of marriage licenses issued over time, showing a generally consistent pattern with a noticeable increase in the number of licenses issued starting around 2020.
+
+And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
+
+```{r}
+# Load the necessary library
+library(tidyverse)
+
+# Assuming your data is in a dataframe called 'raw_data', inspect the data first
+head(data)
+
+# Create a bar chart: count of marriage licenses by civic center
+ggplot(data, aes(x = civic_centre, y = marriage_licenses)) +
+  geom_bar(stat = "identity", fill = "steelblue") +  # Change 'steelblue' to any desired color
+  labs(
+    title = "Marriage Licenses Issued by Civic Center",
+    x = "Civic Centre",
+    y = "Number of Marriage Licenses"
+  ) +
+  theme_minimal() +  # Optional: for a clean theme
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels if needed
+```
+
+The bar chart shows the distribution of marriage licenses issued at different civic centers. Toronto (TO) has a noticeably higher number of licenses compared to Scarborough (SC), North York (NY), and Etobicoke (ET), suggesting that TO handles a substantially greater volume of marriage licenses than the other locations.
+
+# Discussion
+
+## First discussion point {#sec-first-point}
+
+If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
+
+## Second discussion point
+
+## Third discussion point
+
+## Weaknesses and next steps
+
+Weaknesses and next steps should also be included.
+
+\newpage
+
+\appendix
+
+# Appendix {.unnumbered}
+
+# Additional data details
+
+\newpage
+
+# References
